@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="96"
+   height="96"
+   viewBox="0 0 96 96"
+   version="1.1"
+   id="svg259"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="favicon-96x96.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview261"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="11.822917"
+     inkscape:cx="46.985022"
+     inkscape:cy="48"
+     inkscape:window-width="2560"
+     inkscape:window-height="1351"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs256" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#89729e;stroke:none;stroke-width:0.188977;fill-opacity:1"
+       id="circle"
+       cx="48"
+       cy="48"
+       r="48" />
+    <text
+       xml:space="preserve"
+       style="font-size:75.852px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.719536"
+       x="47.451077"
+       y="75.956612"
+       id="text14417"
+       transform="scale(1.0021814,0.99782334)"><tspan
+         sodipodi:role="line"
+         id="tspan14415"
+         style="font-size:75.852px;text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:0.719536"
+         x="47.451077"
+         y="75.956612">静</tspan></text>
+  </g>
+</svg>
