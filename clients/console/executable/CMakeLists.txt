@@ -54,3 +54,17 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/includes/Shizu/Client/Console/Configu
 list(APPEND ${name}.sources includes/Shizu/Client/Console/Configure.h)
 
 end_executable()
+
+target_link_libraries(${name} Shizu.Runtime idlib-process)
+
+add_dependencies(${name} Shizu.Runtime.Modules.FileSystem)
+
+set(modules "")
+get_target_property(modules Shizu.Runtime modules)
+foreach (module ${modules})
+  add_dependencies(${name} ${module})
+endforeach()
+
+foreach (module ${modules})
+  copy_plugin(${name} ${module})
+endforeach()
