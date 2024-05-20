@@ -21,7 +21,7 @@
 
 cmake_minimum_required(VERSION 3.20)
 
-set(name ${Shizu.project-name}.ConsoleServer)
+set(name ${Shizu.project-name}.ConsoleServerControl)
 
 begin_executable()
 
@@ -55,7 +55,7 @@ list(APPEND ${name}.sources includes/Shizu/Server/Console/Configure.h)
 
 end_executable()
 
-target_link_libraries(${name} Shizu.Runtime idlib-array idlib-pipe idlib-process)
+target_link_libraries(${name} Shizu.Runtime idlib-pipe idlib-process)
 
 add_dependencies(${name} Shizu.Runtime.Modules.FileSystem)
 

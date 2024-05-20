@@ -1,5 +1,5 @@
 #
-# Shizu
+# Shizu Pipe
 # Copyright (C) 2024 Michael Heilmann. All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
@@ -19,5 +19,6 @@
 # 3. This notice may not be removed or altered from any source distribution.
 #
 
-add_subdirectory(console)
-add_subdirectory(console-control)
+cmake_minimum_required(VERSION 3.20)
+
+add_subdirectory(library)

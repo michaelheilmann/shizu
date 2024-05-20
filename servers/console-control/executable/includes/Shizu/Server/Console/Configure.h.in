@@ -1,0 +1,28 @@
+// Copyright (c) 2024 Michael Heilmann. All rights reserved.
+#if !defined(SHIZU_CONFIGURE_H_INCLUDED)
+#define SHIZU_CONFIGURE_H_INCLUDED
+
+
+
+#define Shizu_Configuration_InstructionSetArchitecture_X64 (1)
+#define Shizu_Configuration_InstructionSetArchitecture_X86 (2)
+
+#define Shizu_Configuration_InstructionSetArchitecture @Shizu_Configuration_InstructionSetArchitecture@
+
+
+
+#define Shizu_Configuration_OperatingSystem_Windows (1)
+#define Shizu_Configuration_OperatingSystem_Linux (2)
+
+#define Shizu_Configuration_OperatingSystem @Shizu_Configuration_OperatingSystem@
+
+
+
+#define Shizu_Configuration_CompilerC_Msvc (1)
+#define Shizu_Configuration_CompilerC_Gcc (2)
+
+#define Shizu_Configuration_CompilerC @Shizu_Configuration_CompilerC@
+
+
+
+#endif // SHIZU_CONFIGURE_H_INCLUDED

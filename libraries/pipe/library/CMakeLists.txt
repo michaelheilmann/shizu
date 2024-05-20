@@ -1,5 +1,5 @@
 #
-# Shizu
+# Shizu Pipe
 # Copyright (C) 2024 Michael Heilmann. All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
@@ -21,50 +21,52 @@
 
 cmake_minimum_required(VERSION 3.20)
 
-set(name ${Shizu.project-name}.ConsoleServer)
+set(name idlib-pipe)
 
-begin_executable()
+begin_library()
 
-list(APPEND ${name}.include_files includes/Shizu/Server/Console/Configure.h.in)
-list(APPEND ${name}.source_files sources/Shizu/Server/Console/Main.c)
+list(APPEND ${name}.source_files sources/idlib/pipe.c)
+list(APPEND ${name}.header_files includes/idlib/pipe.h)
 
 # Configuration variables for 'Configure.h.in'.
 if (${${name}.operating_system} STREQUAL ${${name}.operating_system_windows})
   set(Shizu_Configuration_OperatingSystem Shizu_Configuration_OperatingSystem_Windows)
-endif()
-if (${${name}.operating_system} STREQUAL ${${name}.operating_system_linux})
+elseif (${${name}.operating_system} STREQUAL ${${name}.operating_system_linux})
   set(Shizu_Configuration_OperatingSystem Shizu_Configuration_OperatingSystem_Linux)
+elseif (${${name}.operating_system} STREQUAL ${${name}.operating_system_cygwin})
+  set(Shizu_Configuration_OperatingSystem Shizu_Configuration_OperatingSystem_Cygwin)
+else()
+  message(FATAL_ERROR "operating system detection not executed")
 endif()
 
 if (${${name}.compiler_c} STREQUAL ${${name}.compiler_c_msvc})
   set(Shizu_Configuration_CompilerC Shizu_Configuration_CompilerC_Msvc)
-endif()
-if (${${name}.compiler_c} STREQUAL ${${name}.compiler_c_gcc})
+elseif (${${name}.compiler_c} STREQUAL ${${name}.compiler_c_gcc})
   set(Shizu_Configuration_CompilerC Shizu_Configuration_CompilerC_Gcc)
+else()
+  message(FATAL_ERROR "C compiler detection not executed")
 endif()
 
-if (${${name}.instruction_set_architecture} EQUAL ${${name}.instruction_set_architecture_x64})
+if (${${name}.instruction_set_architecture} STREQUAL ${${name}.instruction_set_architecture_x64})
   set(Shizu_Configuration_InstructionSetArchitecture Shizu_Configuration_InstructionSetArchitecture_X64)
-endif()
-if (${${name}.instruction_set_architecture} EQUAL ${${name}.instruction_set_architecture_x86})
+elseif (${${name}.instruction_set_architecture} STREQUAL ${${name}.instruction_set_architecture_x86})
   set(Shizu_Configuration_InstructionSetArchitecture Shizu_Configuration_InstructionSetArchitecture_X86)
+else()
+  message(FATAL_ERROR "instruction set architecture detection not executed")
 endif()
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/includes/Shizu/Server/Console/Configure.h.in includes/Shizu/Server/Console/Configure.h)
-list(APPEND ${name}.sources includes/Shizu/Server/Console/Configure.h)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/includes/idlib/pipe/configure.h.in includes/idlib/pipe/configure.h)
+list(APPEND ${name}.configuration_files ${CMAKE_CURRENT_BINARY_DIR}/includes/idlib/pipe/configure.h)
 
-end_executable()
+end_library()
 
-target_link_libraries(${name} Shizu.Runtime idlib-array idlib-pipe idlib-process)
+target_link_libraries(${name} idlib-array idlib-process)
 
-add_dependencies(${name} Shizu.Runtime.Modules.FileSystem)
+source_group(TREE ${CMAKE_CURRENT_BINARY_DIR} FILES ${${name}.configuration_files})
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${${name}.header_files})
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${${name}.source_files})
 
-set(modules "")
-get_target_property(modules Shizu.Runtime modules)
-foreach (module ${modules})
-  add_dependencies(${name} ${module})
-endforeach()
-
-foreach (module ${modules})
-  copy_plugin(${name} ${module})
-endforeach()
+# We must define _GNU_SOURCE under Linux.
+if (${${name}.operating_system_id} EQUAL ${${name}.operating_system_id_linux})
+  target_compile_definitions(${name} PUBLIC _GNU_SOURCE)
+endif()

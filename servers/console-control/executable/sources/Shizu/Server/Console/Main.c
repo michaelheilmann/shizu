@@ -35,9 +35,10 @@
 // uint8_t
 #include <inttypes.h>
 
-#include "idlib/array.h"
 #include "idlib/pipe.h"
-#include "idlib/process.h"
+
+static uint8_t message_p[] = { 's', 'h', 'i', 'z', 'u' };
+static size_t message_n = sizeof(message_p);
 
 int
 main
@@ -46,34 +47,25 @@ main
     char **argv
   )
 {
+  idlib_pipe_message* message;
   idlib_pipe pipe;
   idlib_status status;
-  status = idlib_pipe_initialize_server(&pipe, MAXIMUM_MESSAGE_SIZE, PIPENAME);
+  status = idlib_pipe_initialize_client(&pipe, PIPENAME);
   if (status) {
     return EXIT_FAILURE;
   }
-  bool g_run = true;
-  while (g_run) {
-    idlib_pipe_message* msg = NULL;
-    if (idlib_pipe_read(&msg, &pipe)) {
-      g_run = false;
-      continue;
-    }
-    if (msg) {
-      uint8_t expected[] = { 's', 'h', 'i', 'z', 'u' };
-      if (msg->n == 5 && !memcmp(msg->p, expected, 5)) {
-        fprintf(stdout, "%s:%d: received quit message\n", __FILE__, __LINE__);
-        idlib_pipe_message_destroy(msg);
-        msg = NULL;
-        g_run = false;
-        continue;
-      } else {
-        fprintf(stderr, "%s:%d: received unknown message\n", __FILE__, __LINE__);
-        idlib_pipe_message_destroy(msg);
-        msg = NULL;
-        continue;
-      }
-    }
+  status = idlib_pipe_message_create(&message, message_p, message_n);
+  if (status) {
+    fprintf(stderr, "%s:%d: write failed\n", __FILE__, __LINE__);
+    idlib_pipe_uninitialize(&pipe);
+    return EXIT_FAILURE;;
+  }
+  status = idlib_pipe_write(&pipe, message);
+  idlib_pipe_message_destroy(message);
+  if (status) {
+    fprintf(stderr, "%s:%d: write failed\n", __FILE__, __LINE__);
+    idlib_pipe_uninitialize(&pipe);
+    return EXIT_FAILURE;;
   }
   idlib_pipe_uninitialize(&pipe);
   return EXIT_SUCCESS;

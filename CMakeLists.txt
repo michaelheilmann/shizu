@@ -98,6 +98,34 @@ endif()
 
 #######################################################################################################################
 
+set(idlib-array.repository CACHE STRING "IdLib Array: The Git repository to check out")
+if (NOT idlib-array.repository)
+  set(idlib-array.repository https://github.com/michaelheilmann/idlib-array.git)
+endif()
+
+set(idlib-array.tag CACHE STRING "IdLib Array: The Git tag to check out")
+if (NOT idlib-array.tag)
+  set(idlib-array.tag 1.0)
+endif()
+
+set(idlib-array.source-dir CACHE STRING "IdLib Array: Path to the source directory")
+if (NOT idlib-array.source-dir)
+  set(idlib-array.source-dir "${CMAKE_CURRENT_BINARY_DIR}/idlib-array-1.0-src")
+endif()
+
+set(idlib-array.binary-dir CACHE STRING "IdLib Array: Path to the build directory")
+if (NOT idlib-array.binary-dir)
+  set(idlib-array.binary-dir "${CMAKE_CURRENT_BINARY_DIR}/idlib-array-1.0-bld")
+endif()
+
+FetchContent_Declare(idlib-array
+                     GIT_REPOSITORY ${idlib-array.repository}
+                     GIT_TAG ${idlib-array.tag}
+                     SOURCE_DIR ${idlib-array.source-dir}
+                     BINARY_DIR ${idlib-array.binary-dir})
+
+#######################################################################################################################
+
 set(Shizu.Runtime.repository CACHE STRING "Shizu Runtime: The Git repository to check out")
 if (NOT Shizu.Runtime.repository)
   set(Shizu.Runtime.repository https://github.com/michaelheilmann/shizu-runtime.git)
@@ -126,7 +154,7 @@ FetchContent_Declare(Shizu.Runtime
 
 #######################################################################################################################
 
-FetchContent_MakeAvailable(Shizu.Runtime)
+FetchContent_MakeAvailable(Shizu.Runtime idlib-array)
 
 #######################################################################################################################
 
@@ -134,5 +162,6 @@ FetchContent_MakeAvailable(Shizu.Runtime)
 enable_testing()
 
 # Add subdirectories.
+add_subdirectory(libraries)
 add_subdirectory(clients)
 add_subdirectory(servers)
