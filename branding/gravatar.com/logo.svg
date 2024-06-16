@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   fill="#000000"
+   version="1.1"
+   id="Capa_1"
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   xml:space="preserve"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs22" /><sodipodi:namedview
+   id="namedview20"
+   pagecolor="#ffffff"
+   bordercolor="#111111"
+   borderopacity="1"
+   inkscape:showpageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="1"
+   inkscape:deskcolor="#d1d1d1"
+   showgrid="false"
+   inkscape:zoom="0.641875"
+   inkscape:cx="778.1889"
+   inkscape:cy="189.28919"
+   inkscape:window-width="2560"
+   inkscape:window-height="1351"
+   inkscape:window-x="-9"
+   inkscape:window-y="-9"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1" />
+<g
+   id="g17"
+   transform="matrix(1.2380236,0,0,1.2380236,31.560973,31.560876)">
+	<g
+   id="g15">
+		<g
+   id="Layer_5_12_">
+			<g
+   id="g12">
+				<path
+   d="m 149.656,286.228 c -0.6,-0.17 -1.569,-0.473 -2.158,-0.672 0,0 -60.259,-20.44 -82.351,-58.289 -10.888,-18.65 -14.907,-55.923 -14.907,-55.923 -0.066,-0.618 -0.617,-1.01 -1.223,-0.87 0,0 -47.433,10.906 -48.814,13.458 -2.135,3.945 12.221,70.301 60.174,96.25 30.606,16.562 89.717,6.672 89.717,6.672 0.613,-0.104 0.626,-0.325 0.027,-0.496 z"
+   id="path2" />
+				<path
+   d="m 212.689,286.292 c 0.728,-0.205 2.284,-0.701 3.463,-1.103 0,0 59.188,-20.077 81.278,-57.926 10.889,-18.649 14.785,-54.798 14.785,-54.798 0.133,-1.236 1.232,-2.02 2.445,-1.741 0,0 46.332,10.653 47.713,13.207 2.137,3.944 -12.221,70.301 -60.174,96.248 -30.605,16.563 -88.604,6.858 -88.604,6.858 -1.221,-0.202 -1.631,-0.538 -0.906,-0.745 z"
+   id="path4" />
+				<path
+   d="m 139.27,255.243 c -13.17,-17.545 -28.872,-45.248 -28.872,-77.598 0,-22.336 15.872,-57.451 15.872,-57.451 0.26,-0.574 -0.018,-1.206 -0.615,-1.405 0,0 -46.897,-15.586 -49.44,-14.102 -3.926,2.293 -26.431,67.28 1.414,114.983 18.43,31.573 76.672,53.765 76.672,53.765 0.589,0.226 0.716,0.035 0.281,-0.422 0,0 -9.422,-9.923 -15.312,-17.77 z"
+   id="path6" />
+				<path
+   d="m 286.364,104.687 c -2.479,-1.444 -47.502,13.153 -47.502,13.153 -0.602,0.194 -0.873,0.821 -0.607,1.393 0,0 16.545,35.67 16.545,58.412 0,32.271 -15.846,60.024 -29.139,77.625 -5.48,7.254 -14.379,16.766 -14.379,16.766 -0.432,0.46 -0.307,0.642 0.277,0.404 0,0 55.809,-22.647 73.391,-52.771 27.846,-47.701 5.34,-112.689 1.414,-114.982 z"
+   id="path8" />
+				<path
+   d="m 241.905,177.14 c 0,57.673 -54.942,104.427 -59.249,104.427 -4.994,0 -59.247,-46.754 -59.247,-104.427 0,-57.671 53.905,-104.426 59.247,-104.426 4.745,0 59.249,46.755 59.249,104.426 z"
+   id="path10" />
+			</g>
+		</g>
+	</g>
+</g>
+<ellipse
+   style="fill:none;stroke:#000000;stroke-width:10.4511;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+   id="path303"
+   cx="256"
+   cy="256"
+   rx="242.77443"
+   ry="242.77441" /></svg>
